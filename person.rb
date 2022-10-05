@@ -1,6 +1,4 @@
 class Person
-  attr_accessor :id, :name, :age, :parent_permission
-
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..100)
     @name = name
@@ -8,8 +6,11 @@ class Person
     @parent_permission = parent_permission
   end
 
+  attr_reader :id # getter
+  attr_accessor :name, :age # getter and setter
+
   def can_use_services?
-    of_age? >= 18 or @parent_permission
+    of_age? >= 18 || @parent_permission
   end
 
   private
