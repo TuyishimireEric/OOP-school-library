@@ -7,7 +7,11 @@ In this project, I have started building a school library app. In this initial s
 
 ## Getting Started
 
-> To successfully utilize this project first of all you need to clone or download the repository, Then open the terminal
+To get a local copy up clone the repo or download the full souce code
+
+    Clone the repository by running git clone git@github.com:TuyishimireEric/OOP-school-library.git
+    Navigate to the folder cd OOP-school-library
+
 
 ### Run the following commands as listed in your terminal:
 
