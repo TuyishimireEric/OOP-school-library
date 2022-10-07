@@ -1,6 +1,10 @@
-require './nameable'
+require_relative 'nameable'
+require 'securerandom'
 
 class Person < Nameable
+  attr_accessor :id, :name, :age, :parent_permission
+  attr_reader :rentals
+
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..100)
@@ -10,15 +14,17 @@ class Person < Nameable
     @rentals = []
   end
 
-  attr_reader :id
-  attr_accessor :name, :age, :rentals
-
-  def add_rentals(date, book)
-    Rentals.new(date, book, self)
-  end
-
   def can_use_services?
     of_age? >= 18 || @parent_permission
+  end
+
+  def add_rental(rental)
+    @rentals.push(rental)
+    rental.person = self
+  end
+
+  def correct_name
+    @name
   end
 
   private
