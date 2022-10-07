@@ -1,15 +1,20 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# OOP school library: add Person, Student and Teacher classes
+# OOP school library
 
-In this project, I have started building a school library app. In this initial step, I implemented the classes to represent students and teachers.
+This is an OOP School Library app, It can be used by the librarian of University to record what books are in the library and who borrows them. The app allows the librarian to:
 
+    Add new students or teachers.
+    Add new books.
+    Save records of who borrowed a given book and when.
+
+And all of this will be built in a beautiful and well-organized way!
 
 ## Getting Started
 
 To get a local copy up clone the repo or download the full souce code
 
-    Clone the repository by running git clone git@github.com:TuyishimireEric/OOP-school-library.git
+    Clone the repository by running git clone **git@github.com:TuyishimireEric/OOP-school-library.git**
     Navigate to the folder cd OOP-school-library
 
 
