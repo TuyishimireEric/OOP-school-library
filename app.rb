@@ -14,6 +14,28 @@ class App
     @rentals = []
   end
 
+  def list_books
+    if @books.empty?
+      puts '
+
+      **************Book store is Empty*****************'
+    else
+      @books.each_with_index { |book, index| puts "#{index}) title: #{book.title} author: #{book.author}" }
+    end
+  end
+
+  def list_people
+    if @people.empty?
+      puts '
+
+      ************No person registered yet************'
+    else
+      @people.each_with_index do |person, index|
+        puts "#{index}) ID: #{person.id} name: #{person.name} age: #{person.age}"
+      end
+    end
+  end
+
   def add_person
     print 'Do you whant to create a Student (1) 0r Teacher (2)? [input the number]: '
     job = gets.chomp.to_i
@@ -24,7 +46,20 @@ class App
       print 'Age: '
       age = gets.chomp
       print 'Has parent permissiom [Y/N]? '
-      parent_permission = gets.chomp.downcase
+      permission = gets.chomp.downcase
+
+      case permission
+      when 'y'
+        parent_permission = true
+      when 'n'
+        parent_permission = false
+      else
+        puts '
+
+        ********************Invalid input*****************'
+        main
+      end
+
       student = Student.new(age, name, parent_permission: parent_permission)
       @people.push(student)
       puts '
@@ -73,18 +108,8 @@ class App
     @rentals.push(rental)
     puts '
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Book created successfully!
+    Rental created successfully!
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-  end
-
-  def list_books
-    @books.each_with_index { |book, index| puts "#{index}) title: #{book.title} author: #{book.author}" }
-  end
-
-  def list_people
-    @people.each_with_index do |person, index|
-      puts "#{index}) ID: #{person.id} name: #{person.name} age: #{person.age}"
-    end
   end
 
   def list_rentals
@@ -95,14 +120,16 @@ class App
     if person
       person.rentals.each { |rental| puts "Date: #{rental.date} book, #{rental.book.title} by #{rental.book.author}" }
     else
-      puts 'Wrong input please try again!!'
+      puts '
+
+      ***************Wrong input please try again!!*************'
     end
   end
 
   def exit_method
     abort '
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      Book created successfully!
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Thank you for using the OOP School Library App!
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   end
 end
